@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>parent-project</artifactId>
+        <groupId>com.sanduo.architecture</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>end-web</artifactId>
+    <packaging>war</packaging>
+
+    <name>end-web</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sanduo.architecture</groupId>
+            <artifactId>goods-web</artifactId>
+            <version>1.0</version>
+            <type>war</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sanduo.architecture</groupId>
+            <artifactId>customer-manager-web</artifactId>
+            <version>1.0</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>com.sanduo.architecture</groupId>
+            <artifactId>cart-manager-web</artifactId>
+            <version>1.0</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>com.sanduo.architecture</groupId>
+            <artifactId>order-manager-web</artifactId>
+            <version>1.0</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>com.sanduo.architecture</groupId>
+            <artifactId>store-manager-web</artifactId>
+            <version>1.0</version>
+            <type>war</type>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>end-web</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <!--将web整合到一个应用发布,第一步添加依赖（type为war），第二添加插件-->
+                    <!--注意合并的顺序一致（当子工程文件冲突时）-->
+                    <overlays>
+                        <overlay>
+                            <groupId>com.sanduo.architecture</groupId>
+                            <artifactId>goods-web</artifactId>
+                        </overlay>
+                        <overlay>
+                            <groupId>com.sanduo.architecture</groupId>
+                            <artifactId>customer-manager-web</artifactId>
+                        </overlay>
+                        <overlay>
+                            <groupId>com.sanduo.architecture</groupId>
+                            <artifactId>cart-manager-web</artifactId>
+                        </overlay>
+                        <overlay>
+                            <groupId>com.sanduo.architecture</groupId>
+                            <artifactId>order-manager-web</artifactId>
+                        </overlay>
+                        <overlay>
+                            <groupId>com.sanduo.architecture</groupId>
+                            <artifactId>store-manager-web</artifactId>
+                        </overlay>
+                    </overlays>
+                </configuration>
+            </plugin>
+            <!--内嵌服务器-->
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.7</version>
+                <configuration>
+                    <connectors>
+                        <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                            <port>8888</port>
+                            <maxIdleTime>30000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                    <webAppSourceDirectory>${project.build.directory}/${pom.artifactId}-${pom.version}
+                    </webAppSourceDirectory>
+                    <contextPath>/</contextPath>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
