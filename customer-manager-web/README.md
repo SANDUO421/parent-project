@@ -11,16 +11,20 @@ idea编译mapper之后总是报说没有找到该方法。检查了好多变接�
 * 在pom.xml下加个配置：也就是说保证 编译的时候会找到src/main/java文件夹下的xml文件
 
 ```xml
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-        </resources>
-    </build>
+    <resources>
+       <resource>
+          <directory>src/main/webapp</directory>
+       </resource>
+       <resource>
+          <directory>src/main/resources</directory>
+       </resource>
+       <resource>
+          <directory>src/main/java</directory>
+          <includes>
+             <include>**/*.xml</include>
+          </includes>
+       </resource>
+    </resources>
 ```  
 ---
 2. mybatis update并非所有字段需要更新的解决办法(需求：更新字段作为参数，未更新字段不传入)

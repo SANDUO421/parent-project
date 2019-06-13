@@ -24,6 +24,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.sanduo.architecture</groupId>
+            <artifactId>web-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

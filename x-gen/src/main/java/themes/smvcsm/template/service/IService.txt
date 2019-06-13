@@ -1,0 +1,12 @@
+package $#modulePackge#.service;
+
+
+import com.sanduo.architecture.common.service.IBaseService;
+
+import $#modulePackge#.entity.$#moduleNameSuperCase#Model;
+import $#modulePackge#.entity.$#moduleNameSuperCase#QueryModel;
+
+public interface I$#moduleNameSuperCase#Service extends IBaseService<$#moduleNameSuperCase#Model,$#moduleNameSuperCase#QueryModel>{
+	
+}
+

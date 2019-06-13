@@ -36,7 +36,7 @@
                             <maxIdleTime>30000</maxIdleTime>
                         </connector>
                     </connectors>
-                    <webAppSourceDirectory>${project.build.directory}/${pom.artifactId}-${p om.version}
+                    <webAppSourceDirectory>${project.build.directory}/${pom.artifactId}-${pom.version}
                     </webAppSourceDirectory>
                     <contextPath>/customer</contextPath>
 
@@ -50,6 +50,12 @@
                 <includes>
                     <include>**/*.xml</include>
                 </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/webapp</directory>
             </resource>
         </resources>
     </build>

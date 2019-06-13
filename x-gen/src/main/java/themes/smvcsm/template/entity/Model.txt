@@ -1,0 +1,12 @@
+package $#modulePackge#.entity;
+
+import com.sanduo.architecture.common.entity.BaseModel;
+
+public class $#moduleNameSuperCase#Model extends BaseModel{
+	$[themes.smvcsm.visitors.VoProperty]
+	$[themes.smvcsm.visitors.VoPropertyGetterSetter]
+	
+	public String toString(){
+		return $[themes.smvcsm.visitors.VoToString];
+	}	
+}

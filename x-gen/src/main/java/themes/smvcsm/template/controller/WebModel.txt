@@ -1,0 +1,7 @@
+package $#modulePackge#.web;
+
+import com.sanduo.architecture.common.controller.BaseWebModel;
+
+public class $#moduleNameSuperCase#WebModel extends BaseWebModel{
+	
+}

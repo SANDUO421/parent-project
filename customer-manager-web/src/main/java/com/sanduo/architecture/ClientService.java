@@ -35,6 +35,10 @@ public class ClientService {
         return customerService;
     }
 
+    /**
+     * 报错（ehcache内部的错误）：DEBUG net.sf.ehcache.util.UpdateChecker - Update check failed:
+     * @param args
+     */
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         ClientService t = (ClientService)ctx.getBean("clientService");
@@ -46,6 +50,7 @@ public class ClientService {
         Page<CustomerModel> p = t.getS().getByConditionPage(cqm);
 
         System.out.println("list=="+p);
+
         //通过方法获取对象，否则可能会因为添加了@Transactional报空指针异常
         Page<CustomerModel> p2 = t.getS().getByConditionPage(cqm);
 

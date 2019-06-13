@@ -16,6 +16,7 @@
         <module>cart-manager-web</module>
         <module>order-manager-web</module>
         <module>store-manager-web</module>
+        <module>x-gen</module>
     </modules>
     <packaging>pom</packaging>
 

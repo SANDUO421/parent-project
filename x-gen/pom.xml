@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>parent-project</artifactId>
+        <groupId>com.sanduo.architecture</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>x-gen</artifactId>
+
+    <dependencies>
+        <!--生成本地-->
+        <dependency>
+            <groupId>org.x.gen</groupId>
+            <artifactId>x-gen</artifactId>
+            <version>2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.x.bash</groupId>
+            <artifactId>x-bash</artifactId>
+            <version>2.4</version>
+        </dependency>
+    </dependencies>
+
+</project>

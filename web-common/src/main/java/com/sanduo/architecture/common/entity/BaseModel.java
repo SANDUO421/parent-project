@@ -3,7 +3,7 @@ package com.sanduo.architecture.common.entity;
 import com.sanduo.architecture.pageutil.Page;
 
 /**
-* @Description:    基本model
+* @Description:    基本model,实现Serializable，序列化：做缓存
 * @Author:         sanduo
 * @CreateDate:     2019/6/11 17:38
 * @Version:        1.0
