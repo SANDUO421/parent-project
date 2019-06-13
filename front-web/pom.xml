@@ -9,11 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>goods-web</artifactId>
+    <artifactId>front-web</artifactId>
     <packaging>war</packaging>
 
-    <name>goods-web</name>
-    <description>商品管理web</description>
+    <name>front-web</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -25,20 +24,44 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
+            <groupId>com.sanduo.architecture</groupId>
+            <artifactId>web-common</artifactId>
+            <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>com.sanduo.architecture</groupId>
-            <artifactId>good-manager</artifactId>
+            <artifactId>goods-web</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sanduo.architecture</groupId>
+            <artifactId>customer-manager-web</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sanduo.architecture</groupId>
+            <artifactId>order-manager-web</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sanduo.architecture</groupId>
+            <artifactId>store-manager-web</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sanduo.architecture</groupId>
+            <artifactId>cart-manager-web</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sanduo.architecture</groupId>
+            <artifactId>goods-manager</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>goods-web</finalName>
+        <finalName>front-web</finalName>
         <plugins>
             <!--内嵌服务器-->
             <plugin>
@@ -54,21 +77,25 @@
                     </connectors>
                     <webAppSourceDirectory>${project.build.directory}/${pom.artifactId}-${pom.version}
                     </webAppSourceDirectory>
-                    <contextPath>/goods</contextPath>
+                    <contextPath>/</contextPath>
+
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <!--注意增加这两行，在打包时相关的类会被独立打成jar -->
-                    <attachClasses>true</attachClasses>
-                    <classesClassifier>api</classesClassifier>
-                </configuration>
-                <version>2.4</version>
-                <executions>
-                </executions>
             </plugin>
         </plugins>
+        <!--解决IDEA编译后没有找到mapper.xml文件-->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/webapp</directory>
+            </resource>
+        </resources>
     </build>
 </project>

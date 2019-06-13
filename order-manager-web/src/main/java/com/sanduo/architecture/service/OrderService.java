@@ -7,6 +7,7 @@ import com.sanduo.architecture.common.service.BaseService;
 import com.sanduo.architecture.dao.OrderDAO;
 import com.sanduo.architecture.entity.OrderModel;
 import com.sanduo.architecture.entity.OrderQueryModel;
+import com.sanduo.architecture.queue.QueueSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

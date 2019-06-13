@@ -17,6 +17,7 @@
         <module>order-manager-web</module>
         <module>store-manager-web</module>
         <module>x-gen</module>
+        <module>front-web</module>
     </modules>
     <packaging>pom</packaging>
 
